@@ -1,13 +1,18 @@
 import React from 'react';
-import Hello from './Hello.jsx';
-import Info from './Info.jsx';
+import { Router, Route, Switch } from 'react-router';
+import history from 'history';
 
-const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <Hello />
-    <Info />
-  </div>
+import { Home } from './Home';
+import { NotFound } from './NotFound';
+
+createBrowserHistory = history.createBrowserHistory;
+const browserHistory = createBrowserHistory();
+
+export const renderRoutes = () => (
+  <Router history={browserHistory}>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route component={NotFound}/>
+    </Switch>
+  </Router>
 );
-
-export default App;
