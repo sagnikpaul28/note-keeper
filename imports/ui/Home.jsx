@@ -15,7 +15,7 @@ export class Home extends React.Component {
                         <p className="content">
                             Take notes anywhere. Find information faster. Share ideas with anyone. Meeting notes, web pages, projects, to-do lists—with Evernote as your note taking app, nothing falls through the cracks.
                         </p>
-                        <Link to="/" className="link">Sign up</Link>
+                        <Link to="/sign-up" className="link">Sign up</Link>
                     </div>
                     <div className="col">
                         <img src="/screenshot.png" />

@@ -1,9 +1,6 @@
 body {
   margin: 0;
   font-family: sans-serif;
-}
-
-.home {
   background: #222222;
 }
 
@@ -31,7 +28,7 @@ body {
 }
 
 .home .row .col .title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: white;
   margin: 0px 0 0.5em;
 }
@@ -54,4 +51,146 @@ body {
 
 .home .row .col img {
   width: 100%;
+}
+
+.signup {
+  width: 90%;
+  max-width: 540px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.signup .title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.signup .contents .form-group {
+  margin: 10px 0;
+  position: relative;
+}
+
+.signup .contents .form-group label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  color: white;
+}
+
+.signup .contents .form-group label.active {
+  top: 0;
+  background: #222;
+  padding: 0 10px;
+  left: 5px;
+  font-size: .75rem;
+}
+
+.signup .contents .form-group input {
+  width: calc(100% - 30px);
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  padding: 12px 15px;
+}
+
+.signup .contents .submit {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 15px 0 0;
+}
+
+.signup .contents .login-link {
+  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+}
+
+.signup .contents .login-link .link {
+  color: white;
+  margin-left: 5px;
+}
+
+.login {
+  width: 90%;
+  max-width: 540px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.login .title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.login .contents .form-group {
+  margin: 10px 0;
+  position: relative;
+}
+
+.login .contents .form-group label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  color: white;
+}
+
+.login .contents .form-group label.active {
+  top: 0;
+  background: #222;
+  padding: 0 10px;
+  left: 5px;
+  font-size: .75rem;
+}
+
+.login .contents .form-group input {
+  width: calc(100% - 30px);
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  padding: 12px 15px;
+}
+
+.login .contents .submit {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 15px 0 0;
+}
+
+.login .contents .signup-link {
+  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+}
+
+.login .contents .signup-link .link {
+  color: white;
+  margin-left: 5px;
 }

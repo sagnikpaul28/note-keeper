@@ -3,6 +3,8 @@ import { Router, Route, Switch } from 'react-router';
 import history from 'history';
 
 import { Home } from './Home';
+import { Login } from './Login';
+import { SignUp } from './SignUp';
 import { NotFound } from './NotFound';
 
 createBrowserHistory = history.createBrowserHistory;
@@ -12,6 +14,8 @@ export const renderRoutes = () => (
   <Router history={browserHistory}>
     <Switch>
       <Route exact path="/" component={Home}/>
+      <Route exact path="/sign-up" component={SignUp}/>
+      <Route exact path="/login" component={Login}/>
       <Route component={NotFound}/>
     </Switch>
   </Router>
