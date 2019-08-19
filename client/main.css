@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #222222;
+  background: #2f2f2a;
 }
 
 .home .row {
@@ -9,14 +9,10 @@ body {
   justify-content: center;
   align-items: center;
   width: 95%;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2em;
   height: calc(100vh - 4em);
-}
-
-.home .row .col {
-  padding: 15px;
 }
 
 .home .row .col:nth-of-type(1) {
@@ -25,11 +21,12 @@ body {
 
 .home .row .col:nth-of-type(2) {
   flex: 3;
+  padding: 15px;
 }
 
 .home .row .col .title {
   font-size: 2rem;
-  color: white;
+  color: #ff6e28;
   margin: 0px 0 0.5em;
 }
 
@@ -47,6 +44,11 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   margin: 20px 0;
+  transition: .3s;
+}
+
+.home .row .col .link:hover {
+  color: #ff6e28;
 }
 
 .home .row .col img {
@@ -60,7 +62,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid white;
+  border: 1px solid #ff6e28;
   border-radius: 4px;
   padding: 20px;
 }
@@ -68,7 +70,7 @@ body {
 .signup .title {
   margin-top: 0;
   font-size: 1.5rem;
-  color: white;
+  color: #ff6e28;
   text-align: center;
 }
 
@@ -82,30 +84,39 @@ body {
   top: 50%;
   transform: translateY(-50%);
   left: 15px;
-  color: white;
+  color: #ff6e28;
 }
 
 .signup .contents .form-group label.active {
   top: 0;
-  background: #222;
+  background: #2f2f2a;
   padding: 0 10px;
   left: 5px;
   font-size: .75rem;
+  color: white;
 }
 
 .signup .contents .form-group input {
   width: calc(100% - 30px);
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid #ff6e28;
   color: white;
   border-radius: 4px;
   padding: 12px 15px;
+  transition: .3s;
+  outline: 0;
+  font-size: 1rem;
+}
+
+.signup .contents .form-group input:focus {
+  border-color: white;
 }
 
 .signup .contents .submit {
   background: transparent;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid;
+  color: #ff6e28;
+  transition: .3s;
   border-radius: 4px;
   width: 100%;
   padding: 10px;
@@ -113,15 +124,25 @@ body {
   margin: 15px 0 0;
 }
 
+.signup .contents .submit:hover {
+  color: white;
+  cursor: pointer;
+}
+
 .signup .contents .login-link {
   margin-bottom: 5px;
-  color: white;
+  color: #ff6e28;
   text-align: center;
 }
 
 .signup .contents .login-link .link {
-  color: white;
+  color: #ff6e28;
   margin-left: 5px;
+  transition: .3s;
+}
+
+.signup .contents .login-link .link:hover {
+  color: white;
 }
 
 .login {
@@ -131,7 +152,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid white;
+  border: 1px solid #ff6e28;
   border-radius: 4px;
   padding: 20px;
 }
@@ -139,7 +160,7 @@ body {
 .login .title {
   margin-top: 0;
   font-size: 1.5rem;
-  color: white;
+  color: #ff6e28;
   text-align: center;
 }
 
@@ -153,30 +174,39 @@ body {
   top: 50%;
   transform: translateY(-50%);
   left: 15px;
-  color: white;
+  color: #ff6e28;
 }
 
 .login .contents .form-group label.active {
   top: 0;
-  background: #222;
+  background: #2f2f2a;
   padding: 0 10px;
   left: 5px;
   font-size: .75rem;
+  color: white;
 }
 
 .login .contents .form-group input {
   width: calc(100% - 30px);
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid #ff6e28;
   color: white;
   border-radius: 4px;
   padding: 12px 15px;
+  transition: .3s;
+  outline: 0;
+  font-size: 1rem;
+}
+
+.login .contents .form-group input:focus {
+  border-color: white;
 }
 
 .login .contents .submit {
   background: transparent;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid;
+  color: #ff6e28;
+  transition: .3s;
   border-radius: 4px;
   width: 100%;
   padding: 10px;
@@ -184,13 +214,23 @@ body {
   margin: 15px 0 0;
 }
 
+.login .contents .submit:hover {
+  color: white;
+  cursor: pointer;
+}
+
 .login .contents .signup-link {
   margin-bottom: 5px;
-  color: white;
+  color: #ff6e28;
   text-align: center;
 }
 
 .login .contents .signup-link .link {
-  color: white;
+  color: #ff6e28;
   margin-left: 5px;
+  transition: .3s;
+}
+
+.login .contents .signup-link .link:hover {
+  color: white;
 }
