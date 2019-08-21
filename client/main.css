@@ -85,6 +85,7 @@ body {
   transform: translateY(-50%);
   left: 15px;
   color: #ff6e28;
+  transition: .3s;
 }
 
 .signup .contents .form-group label.active {
@@ -139,10 +140,26 @@ body {
   color: #ff6e28;
   margin-left: 5px;
   transition: .3s;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  padding: 0;
+  cursor: pointer;
 }
 
 .signup .contents .login-link .link:hover {
   color: #ccc;
+}
+
+.signup .error {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ff6e28;
+  font-weight: bolder;
+  width: 400px;
+  text-align: center;
 }
 
 .login {
@@ -175,6 +192,7 @@ body {
   transform: translateY(-50%);
   left: 15px;
   color: #ff6e28;
+  transition: .3s;
 }
 
 .login .contents .form-group label.active {
@@ -238,9 +256,9 @@ body {
 .notes-container .sidebar {
   position: absolute;
   width: 270px;
-  height: 100%;
+  height: calc(100% - 100px);
   border-right: 1px solid #ff6e28;
-  padding: 10px;
+  padding: 10px 10px 90px
 }
 
 .notes-container .sidebar .details-container .name-logo {
@@ -305,7 +323,9 @@ body {
 }
 
 .notes-container .sidebar .notes-list {
-  margin-top: 20px;
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 1px solid #555;
 }
 
 .notes-container .sidebar .notes-list .item {
@@ -343,6 +363,24 @@ body {
 }
 
 .notes-container .sidebar .notes-list .item:hover p, .notes-container .sidebar .notes-list .item.active p {
+  color: #ff6e28;
+}
+
+.notes-container .sidebar .add-notes {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.notes-container .sidebar .add-notes .plus {
+  font-size: 40px;
+  border: 2px solid;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border-radius: 50%;
+  vertical-align: middle;
   color: #ff6e28;
 }
 

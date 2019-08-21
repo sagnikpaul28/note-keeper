@@ -31,6 +31,9 @@ export class Notes extends React.Component {
                             <p>My Fourth Note</p>
                         </div>
                     </div>
+                    <div className="add-notes">
+                        <span className="plus">+</span>
+                    </div>
                 </div>
                 <div className="note">
                     <div className="header">
