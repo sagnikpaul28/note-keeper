@@ -253,6 +253,17 @@ body {
   color: #ccc;
 }
 
+.login .error {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ff6e28;
+  font-weight: bolder;
+  width: 400px;
+  text-align: center;
+}
+
 .notes-container .sidebar {
   position: absolute;
   width: 270px;
