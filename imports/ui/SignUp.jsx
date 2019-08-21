@@ -75,7 +75,7 @@ export class SignUp extends React.Component {
                 password: this.state.password
             }, function(error, result) {
                 if (result.code === 200) {
-                    localStorage.setItem('loggedIn', true);
+                    localStorage.setItem('email', self.state.email);
                     self.props.history.push('/notes');
                 }else if (result.code === 422) {
                     self.setState({

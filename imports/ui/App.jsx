@@ -5,7 +5,7 @@ import history from 'history';
 import { Home } from './Home';
 import { Login } from './Login';
 import { SignUp } from './SignUp';
-import { Notes } from './Notes';
+import NotesPage from './NotesPage';
 import { NotFound } from './NotFound';
 
 createBrowserHistory = history.createBrowserHistory;
@@ -17,7 +17,7 @@ export const renderRoutes = () => (
       <Route exact path="/" component={Home}/>
       <Route exact path="/sign-up" component={SignUp}/>
       <Route exact path="/login" component={Login}/>
-      <Route exact path="/notes" component={Notes}/>
+      <Route exact path="/notes" component={NotesPage}/>
       <Route component={NotFound}/>
     </Switch>
   </Router>
