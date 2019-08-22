@@ -15,6 +15,7 @@ class NotesPage extends React.Component {
 
         this.state = {
             email: email,
+            currentNotesID: '',
             currentNotesTitle: '',
             currentNotesContent: ''
         };
@@ -23,6 +24,7 @@ class NotesPage extends React.Component {
     componentDidUpdate(prevProps) {
         if (prevProps.notes.length === 0 && prevProps.notes !== this.props.notes) {
             this.setState({
+                currentNotesID: this.props.notes[0]._id,
                 currentNotesTitle: this.props.notes[0].title,
                 currentNotesContent: this.props.notes[0].content  
             });
@@ -30,8 +32,8 @@ class NotesPage extends React.Component {
     }
 
     onNoteSelect(index) {
-        console.log(index);
         this.setState({
+            currentNotesID: this.props.notes[index]._id,
             currentNotesTitle: this.props.notes[index].title,
             currentNotesContent: this.props.notes[index].content  
         })
@@ -44,6 +46,52 @@ class NotesPage extends React.Component {
                 <p>{note.title}</p>
             </div>
         });
+    }
+
+    onChangeNote(event) {
+        let type = event.target.name;
+        let currentNoteType = 'currentNotes' + type[0].toUpperCase() + type.substring(1);
+        this.setState({
+            [currentNoteType]: event.target.value
+        })
+    }
+
+    onNoteSave() {
+        Meteor.call('notes.save', {
+            _id: this.state.currentNotesID,
+            title: this.state.currentNotesTitle,
+            content: this.state.currentNotesContent
+        });
+    }
+
+    onNoteDelete() {
+        let self = this;
+        Meteor.call('notes.delete', {_id: this.state.currentNotesID}, function() {
+            if (self.props.notes.length > 0) {
+                self.setState({
+                    currentNotesID: self.props.notes[0]._id,
+                    currentNotesTitle: self.props.notes[0].title,
+                    currentNotesContent: self.props.notes[0].content  
+                })
+            }else {
+                self.setState({
+                    currentNotesID: '',
+                    currentNotesContent: '',
+                    currentNotesTitle: ''
+                })
+            }
+        });
+    }
+
+    onNoteAdd() {
+        let self = this;
+        Meteor.call('notes.insert', function(error, result) {
+            self.setState({
+                currentNotesID: result,
+                currentNotesTitle: 'Untitled Note',
+                currentNotesContent: ''
+            })
+        })
     }
 
     render() {
@@ -61,20 +109,28 @@ class NotesPage extends React.Component {
                     <div className="notes-list">
                         {this.renderNotesList()}
                     </div>
-                    <div className="add-notes">
+                    <div className="add-notes" onClick={this.onNoteAdd.bind(this)}>
                         <span className="plus">+</span>
                     </div>
                 </div>
                 <div className="note">
                     <div className="header">
-                        <p className="title">
-                            {this.state.currentNotesTitle}
-                        </p>
+                        <input className="title" value={this.state.currentNotesTitle} onChange={this.onChangeNote.bind(this)} name="title" placeholder="Enter Title..." />
+                        {
+                            (this.state.currentNotesID.length > 0 || this.state.currentNotesTitle.length > 0 || this.state.currentNotesContent.length > 0) ?
+                                <><span className="save">
+                                    <img src="/save.png" onClick={this.onNoteSave.bind(this)} />
+                                </span>
+                                <span className="delete">
+                                    <img src="/delete.png" onClick={this.onNoteDelete.bind(this)} />
+                                </span></>
+                                : ''
+                            
+                        }
                     </div>
                     <div className="content">
-                        <p>
-                            {this.state.currentNotesContent}
-                        </p>
+                        <textarea value={this.state.currentNotesContent} onChange={this.onChangeNote.bind(this)} name="content" placeholder="Enter Content..." >
+                        </textarea>
                     </div>
                 </div>
             </div>
@@ -86,6 +142,6 @@ export default withTracker(() => {
     Meteor.subscribe('notes');
     
     return {
-      notes: Notes.find({}, { sort: { createdAt: -1 } }).fetch()
+      notes: Notes.find({}).fetch().reverse()
     };
 })(NotesPage);
