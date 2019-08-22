@@ -100,7 +100,7 @@ class NotesPage extends React.Component {
                 <div className="sidebar">
                     <div className="details-container">
                         <img className="name-logo" src="/icons-s.svg"/>
-                        <span className="email">sagnikpaul2882@gmail.com</span>
+                        <span className="email">{this.state.email}</span>
                     </div>
                     <div className="search-container">
                         <input type="text" placeholder="Search all notes.." />
@@ -114,24 +114,25 @@ class NotesPage extends React.Component {
                     </div>
                 </div>
                 <div className="note">
-                    <div className="header">
-                        <input className="title" value={this.state.currentNotesTitle} onChange={this.onChangeNote.bind(this)} name="title" placeholder="Enter Title..." />
-                        {
-                            (this.state.currentNotesID.length > 0 || this.state.currentNotesTitle.length > 0 || this.state.currentNotesContent.length > 0) ?
-                                <><span className="save">
-                                    <img src="/save.png" onClick={this.onNoteSave.bind(this)} />
-                                </span>
-                                <span className="delete">
-                                    <img src="/delete.png" onClick={this.onNoteDelete.bind(this)} />
-                                </span></>
-                                : ''
-                            
-                        }
-                    </div>
-                    <div className="content">
-                        <textarea value={this.state.currentNotesContent} onChange={this.onChangeNote.bind(this)} name="content" placeholder="Enter Content..." >
-                        </textarea>
-                    </div>
+                    {
+                        this.props.notes.length > 0 ?
+                            <>
+                                <div className="header"> 
+                                    <input className="title" value={this.state.currentNotesTitle} onChange={this.onChangeNote.bind(this)} name="title" placeholder="Enter Title..." />
+                                    <span className="save">
+                                        <img src="/save.png" onClick={this.onNoteSave.bind(this)} />
+                                    </span>
+                                    <span className="delete">
+                                        <img src="/delete.png" onClick={this.onNoteDelete.bind(this)} />
+                                    </span>
+                                </div>
+                                <div className="content">
+                                    <textarea value={this.state.currentNotesContent} onChange={this.onChangeNote.bind(this)} name="content" placeholder="Enter Content..." >
+                                    </textarea>
+                                </div>
+                            </>
+                            : <p className="no-notes">Click on the add icon to start adding notes</p>  
+                    }
                 </div>
             </div>
         )

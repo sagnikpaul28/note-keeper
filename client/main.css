@@ -451,3 +451,11 @@ body {
   height: calc(100% - 20px);
   outline: 0;
 }
+
+.notes-container .note .no-notes {
+  position: relative;
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 2em auto;
+  color: #ccc;
+}
